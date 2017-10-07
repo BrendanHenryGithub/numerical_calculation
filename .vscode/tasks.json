@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "-g", "*.cpp"
+                "-g", "Lagra*.cpp"
             ],
             "group": {
                 "kind": "build",
