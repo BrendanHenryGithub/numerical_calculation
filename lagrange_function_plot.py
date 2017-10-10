@@ -31,7 +31,10 @@ ax.plot(x, p3(x))
 ax.plot(x, p4(x))
 ax.plot(x,1/(1+x*x))
 ax.grid()
+<<<<<<< HEAD
 
+=======
+>>>>>>> ba172d051110c0e4bd3c7e835f6cba78e07ff3ce
 plt.show()
 
 fig2,ax2=plt.subplots()
