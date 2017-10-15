@@ -13,9 +13,9 @@ int main() {
   value_table.push_back(make_pair(0.3, 0.6179));
   value_table.push_back(make_pair(0.4, 0.7554));
 
-  cout << lagrange_interpolating(0.13) << endl;
-  cout << lagrange_interpolating(0.22) << endl;
-  cout << lagrange_interpolating(0.36) << endl;
+  cout << "f(0.13) = " << lagrange_interpolating(0.13) << endl;
+  cout << "f(0.22) = " << lagrange_interpolating(0.22) << endl;
+  cout << "f(0.36) = " << lagrange_interpolating(0.36) << endl;
   return 0;
 }
 
