@@ -21,6 +21,7 @@ def jacobi_iteration(coe_matrix, const_col):
         print("该矩阵不收敛！其谱半径为：{0}".format(spectral_value))
         return 1
 
+    num=0;     
     while True:
         for i in range(size):
             tmpSum = 0
@@ -32,10 +33,10 @@ def jacobi_iteration(coe_matrix, const_col):
         if sum(abs(xTmpVector - x_vector)) < 0.0001:
             break
         x_vector = np.copy(xTmpVector)
-        print("临时迭代解：{0}".format(xTmpVector))
+        # print("临时迭代解：{0}".format(xTmpVector))
+        num=num+1;
         
-
-    print("方程的解为：{0}".format(x_vector))
+    print("方程的解为：{0} ,迭代总次数为：{1},误差为0.0001".format(x_vector,num))
 
 
 def G_S_Iteration(coe_matrix, const_col):
@@ -51,7 +52,8 @@ def G_S_Iteration(coe_matrix, const_col):
     if spectral_value >= 1:
         print("该矩阵不收敛！其谱半径为：{0}".format(spectral_value))
         return 1
-
+    
+    num=0;
     while True:
         for i in range(size):
             tmpSum1 = 0
@@ -64,9 +66,10 @@ def G_S_Iteration(coe_matrix, const_col):
         if sum(abs(xTmpVector - x_vector)) < 0.0001:
             break
         x_vector = np.copy(xTmpVector)
-        print("临时迭代解：{0}".format(xTmpVector))
+        # print("临时迭代解：{0}".format(xTmpVector))
+        num=num+1;
 
-    print("方程的解为：{0}".format(x_vector))
+    print("方程的解为：{0} ,迭代总次数为：{1},误差为0.0001".format(x_vector,num))
 
 def SOR_Iteration(coe_matrix,const_col,w_factor):
     size = const_col.size
@@ -82,6 +85,7 @@ def SOR_Iteration(coe_matrix,const_col,w_factor):
         print("该矩阵不收敛！其谱半径为：{0}".format(spectral_value))
         return 1
 
+    num=0;
     while True:
         for i in range(size):
             tmpSum1 = 0
@@ -94,10 +98,11 @@ def SOR_Iteration(coe_matrix,const_col,w_factor):
         if sum(abs(xTmpVector - x_vector)) < 0.000001:
             break
         x_vector = np.copy(xTmpVector)
-        print("临时迭代解：{0}".format(xTmpVector))
+        # print("临时迭代解：{0}".format(xTmpVector))
+        num=num+1;
         
 
-    print("方程的解为：{0}".format(x_vector))
+    print("方程的解为：{0},迭代总次数为：{1}".format(x_vector,num))
 
 
 def main():
@@ -105,7 +110,7 @@ def main():
         0.8, 0.8, 1]], dtype=np.float)
     const_col = np.array([1, 2, 3], dtype=np.float)
     print("雅克比迭代过程：")
-    Jacobi_Iteration(coe_matrix, const_col)
+    jacobi_iteration(coe_matrix, const_col)
     print("\n高斯-赛德尔迭代过程：")
     G_S_Iteration(coe_matrix,const_col)
 
@@ -113,7 +118,7 @@ def main():
     const_col1 = np.array([1,-5,3],dtype=np.float)
     
     for w_factor in [0.2,0.5,1.0,1.24,1.5,2.2]:
-        print("\nw因子为：{0} 时的SOR迭代过程：".format(w_factor))
+        print("\nw因子为：{0} 时，误差为：0.000001时的SOR迭代：".format(w_factor))
         SOR_Iteration(coe_matrix1,const_col1,w_factor)
 
 
