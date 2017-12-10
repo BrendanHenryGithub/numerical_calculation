@@ -21,7 +21,7 @@ def jacobi_iteration(coe_matrix, const_col):
         print("该矩阵不收敛！其谱半径为：{0}".format(spectral_value))
         return 1
 
-    num=0;     
+    num=0     
     while True:
         for i in range(size):
             tmpSum = 0
@@ -53,7 +53,7 @@ def G_S_Iteration(coe_matrix, const_col):
         print("该矩阵不收敛！其谱半径为：{0}".format(spectral_value))
         return 1
     
-    num=0;
+    num=0
     while True:
         for i in range(size):
             tmpSum1 = 0
@@ -85,7 +85,7 @@ def SOR_Iteration(coe_matrix,const_col,w_factor):
         print("该矩阵不收敛！其谱半径为：{0}".format(spectral_value))
         return 1
 
-    num=0;
+    num=0
     while True:
         for i in range(size):
             tmpSum1 = 0
